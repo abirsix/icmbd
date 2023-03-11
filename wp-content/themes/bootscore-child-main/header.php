@@ -59,7 +59,7 @@
                     width="70px" class="logo md"></a>
               </div>
               <div class="col-sm-10">
-                <p>social media</p>
+                <p>Institute of Compliance Modernization</p>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
                   <div class="offcanvas-header bg-light">
                     <span class="h5 mb-0">
