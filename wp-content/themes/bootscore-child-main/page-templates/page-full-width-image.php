@@ -11,15 +11,18 @@
 get_header();
 ?>
 
-<div id="content" class="site-content">
+<div id="content" class="site-content site-padding-2">
   <div id="primary" class="content-area">
 
     <main id="main" class="site-main">
 
       <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
-      <header class="entry-header featured-full-width-img height-75 bg-dark text-light mb-3" style="background-image: url('<?php echo $thumb['0']; ?>')">
+      <header class="entry-header featured-full-width-img height-75 bg-dark text-light mb-3"
+        style="background-image: url('<?php echo $thumb['0']; ?>')">
         <div class="container entry-header h-100 d-flex align-items-end pb-3">
-          <h1 class="entry-title"><?php the_title(); ?></h1>
+          <h1 class="entry-title">
+            <?php the_title(); ?>
+          </h1>
         </div>
       </header>
 

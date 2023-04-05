@@ -11,7 +11,7 @@
 get_header();
 ?>
 
-<div id="content" class="site-content">
+<div id="content" class="site-content site-padding-2">
   <div id="primary" class="content-area">
 
     <!-- Hook to add something nice -->

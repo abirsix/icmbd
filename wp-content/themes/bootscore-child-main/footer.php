@@ -16,7 +16,7 @@
 
 <footer>
 
-  <div class="bootscore-footer bg-light pt-5 pb-3">
+  <div class="bootscore-footer pt-5 pb-3">
     <div class="container">
 
       <!-- Top Footer Widget -->
@@ -68,6 +68,7 @@
       </div>
 
       <!-- Bootstrap 5 Nav Walker Footer Menu -->
+      <h4 class="imp-link">Important Links</h4>
       <?php
       wp_nav_menu(
         array(
@@ -85,15 +86,46 @@
 
     </div>
   </div>
+  <div class="container border-top">
+    <div class="row">
+      <div class="col-8">
+        <div class="bootscore-info text-muted py-2 text-left">
+          <div class="container">
+            <a class="text-muted" href="<?php echo esc_url(home_url()); ?>"><img
+                src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/ICM-logo.jpg" alt="logo"
+                width="40px"></a>
 
-  <div class="bootscore-info bg-light text-muted border-top py-2 text-center">
-    <div class="container">
-      <small>&copy;&nbsp;
-        <?php echo Date('Y'); ?> -
-        <?php bloginfo('name'); ?> design and developed by icmbd
-      </small>
+            <span class="logo-name-footer"> Institute of Compliance Modernization</span>
+            <small class="copy-right-text">
+              &copy;&nbsp;
+              <?php echo Date('Y'); ?> -
+              <?php bloginfo('name'); ?> design and developed by icmbd
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 pt-3 ps-0">
+        <a class="float-end ms-3" href="#"><i class="fa-brands fa-square-facebook"></i></a>
+        <a class="float-end ms-3" href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a class="float-end ms-3" href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a class="float-end ms-3" href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+
     </div>
   </div>
+  <div class="col-12 d-md-none" style="background-color: #001e04;">
+    <div class="bootscore-info text-muted py-2 text-center">
+      <div class="container">
+        <small>
+          &copy;&nbsp;
+          <?php echo Date('Y'); ?> -
+          <?php bloginfo('name'); ?> design and developed by icmbd
+        </small>
+      </div>
+    </div>
+  </div>
+
+
 
 </footer>
 
@@ -101,7 +133,7 @@
 <a href="#" class="btn btn-primary shadow top-button position-fixed zi-1020"><i class="fa-solid fa-chevron-up"></i><span
     class="visually-hidden-focusable">To top</span></a>
 
-</div><!-- #page -->
+
 
 <?php wp_footer(); ?>
 

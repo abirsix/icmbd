@@ -3,7 +3,7 @@
  * Template Post Type: post
  */
 
-get_header();  
+get_header();
 ?>
 
 <div id="content" class="site-content container py-5 mt-4">
@@ -22,13 +22,15 @@ get_header();
           <header class="entry-header">
             <?php the_post(); ?>
             <?php bootscore_category_badge(); ?>
-            <h1><?php the_title(); ?></h1>
+            <h1>
+              <?php the_title(); ?>
+            </h1>
             <p class="entry-meta">
               <small class="text-muted">
                 <?php
-                  bootscore_date();
-                  bootscore_author();
-                  bootscore_comment_count();
+                bootscore_date();
+                bootscore_author();
+                bootscore_comment_count();
                 ?>
               </small>
             </p>

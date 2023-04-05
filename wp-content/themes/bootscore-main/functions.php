@@ -15,8 +15,9 @@
 
 
 // Register Bootstrap 5 Nav Walker
-if (!function_exists('register_navwalker')) :
-  function register_navwalker() {
+if (!function_exists('register_navwalker')):
+  function register_navwalker()
+  {
     require_once('inc/class-bootstrap-5-navwalker.php');
     // Register Menus
     register_nav_menu('main-menu', 'Main menu');
@@ -28,8 +29,9 @@ add_action('after_setup_theme', 'register_navwalker');
 
 
 // Register Comment List
-if (!function_exists('register_comment_list')) :
-  function register_comment_list() {
+if (!function_exists('register_comment_list')):
+  function register_comment_list()
+  {
     // Register Comment List
     require_once('inc/comment-list.php');
   }
@@ -38,7 +40,7 @@ add_action('after_setup_theme', 'register_comment_list');
 // Register Comment List END
 
 
-if (!function_exists('bootscore_setup')) :
+if (!function_exists('bootscore_setup')):
   /**
    * Sets up theme defaults and registers support for various WordPress features.
    *
@@ -46,13 +48,14 @@ if (!function_exists('bootscore_setup')) :
    * runs before the init hook. The init hook is too late for some features, such
    * as indicating support for post thumbnails.
    */
-  function bootscore_setup() {
+  function bootscore_setup()
+  {
     /*
      * Make theme available for translation.
      * Translations can be filed in the /languages/ directory.
      * If you're building a theme based on Bootscore, use a find and replace
      * to change 'bootscore' to the name of your theme in all the template files.
-    */
+     */
     load_theme_textdomain('bootscore', get_template_directory() . '/languages');
 
     // Add default posts and comments RSS feed links to head.
@@ -63,26 +66,29 @@ if (!function_exists('bootscore_setup')) :
      * By adding theme support, we declare that this theme does not use a
      * hard-coded <title> tag in the document head, and expect WordPress to
      * provide it for us.
-    */
+     */
     add_theme_support('title-tag');
 
     /*
      * Enable support for Post Thumbnails on posts and pages.
      *
      * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-    */
+     */
     add_theme_support('post-thumbnails');
 
     /*
      * Switch default core markup for search form, comment form, and comments
      * to output valid HTML5.
-    */
-    add_theme_support('html5', array(
-      'comment-form',
-      'comment-list',
-      'gallery',
-      'caption',
-    ));
+     */
+    add_theme_support(
+      'html5',
+      array(
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+      )
+    );
 
     // Add theme support for selective refresh for widgets.
     add_theme_support('customize-selective-refresh-widgets');
@@ -97,7 +103,8 @@ add_action('after_setup_theme', 'bootscore_setup');
  *
  * @global int $content_width
  */
-function bootscore_content_width() {
+function bootscore_content_width()
+{
   // This variable is intended to be overruled from themes.
   // Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
   // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
@@ -115,116 +122,136 @@ add_action('after_setup_theme', 'bootscore_content_width', 0);
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 // Widgets
-if (!function_exists('bootscore_widgets_init')) :
+if (!function_exists('bootscore_widgets_init')):
 
-  function bootscore_widgets_init() {
+  function bootscore_widgets_init()
+  {
 
     // Top Nav
-    register_sidebar(array(
-      'name'          => esc_html__('Top Nav', 'bootscore'),
-      'id'            => 'top-nav',
-      'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="ms-3">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<div class="widget-title d-none">',
-      'after_title'   => '</div>'
-    ));
+    register_sidebar(
+      array(
+        'name' => esc_html__('Top Nav', 'bootscore'),
+        'id' => 'top-nav',
+        'description' => esc_html__('Add widgets here.', 'bootscore'),
+        'before_widget' => '<div class="ms-3">',
+        'after_widget' => '</div>',
+        'before_title' => '<div class="widget-title d-none">',
+        'after_title' => '</div>'
+      )
+    );
     // Top Nav End
 
     // Top Nav Search
-    register_sidebar(array(
-      'name'          => esc_html__('Top Nav Search', 'bootscore'),
-      'id'            => 'top-nav-search',
-      'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="top-nav-search">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<div class="widget-title d-none">',
-      'after_title'   => '</div>'
-    ));
+    register_sidebar(
+      array(
+        'name' => esc_html__('Top Nav Search', 'bootscore'),
+        'id' => 'top-nav-search',
+        'description' => esc_html__('Add widgets here.', 'bootscore'),
+        'before_widget' => '<div class="top-nav-search">',
+        'after_widget' => '</div>',
+        'before_title' => '<div class="widget-title d-none">',
+        'after_title' => '</div>'
+      )
+    );
     // Top Nav Search End
 
     // Sidebar
-    register_sidebar(array(
-      'name'          => esc_html__('Sidebar', 'bootscore'),
-      'id'            => 'sidebar-1',
-      'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<section id="%1$s" class="widget %2$s card card-body mb-4 bg-light border-0">',
-      'after_widget'  => '</section>',
-      'before_title'  => '<h2 class="widget-title card-title border-bottom py-2">',
-      'after_title'   => '</h2>',
-    ));
+    register_sidebar(
+      array(
+        'name' => esc_html__('Sidebar', 'bootscore'),
+        'id' => 'sidebar-1',
+        'description' => esc_html__('Add widgets here.', 'bootscore'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s card card-body mb-4 bg-light border-0">',
+        'after_widget' => '</section>',
+        'before_title' => '<h2 class="widget-title card-title border-bottom py-2">',
+        'after_title' => '</h2>',
+      )
+    );
+
     // Sidebar End
 
     // Top Footer
-    register_sidebar(array(
-      'name'          => esc_html__('Top Footer', 'bootscore'),
-      'id'            => 'top-footer',
-      'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="footer_widget mb-5">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title">',
-      'after_title'   => '</h2>'
-    ));
+    register_sidebar(
+      array(
+        'name' => esc_html__('Top Footer', 'bootscore'),
+        'id' => 'top-footer',
+        'description' => esc_html__('Add widgets here.', 'bootscore'),
+        'before_widget' => '<div class="footer_widget mb-5">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="widget-title">',
+        'after_title' => '</h2>'
+      )
+    );
     // Top Footer End
 
     // Footer 1
-    register_sidebar(array(
-      'name'          => esc_html__('Footer 1', 'bootscore'),
-      'id'            => 'footer-1',
-      'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="footer_widget mb-4">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
-      'after_title'   => '</h2>'
-    ));
+    register_sidebar(
+      array(
+        'name' => esc_html__('Footer 1', 'bootscore'),
+        'id' => 'footer-1',
+        'description' => esc_html__('Add widgets here.', 'bootscore'),
+        'before_widget' => '<div class="footer_widget mb-4">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="widget-title h4">',
+        'after_title' => '</h2>'
+      )
+    );
     // Footer 1 End
 
     // Footer 2
-    register_sidebar(array(
-      'name'          => esc_html__('Footer 2', 'bootscore'),
-      'id'            => 'footer-2',
-      'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="footer_widget mb-4">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
-      'after_title'   => '</h2>'
-    ));
+    register_sidebar(
+      array(
+        'name' => esc_html__('Footer 2', 'bootscore'),
+        'id' => 'footer-2',
+        'description' => esc_html__('Add widgets here.', 'bootscore'),
+        'before_widget' => '<div class="footer_widget mb-4">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="widget-title h4">',
+        'after_title' => '</h2>'
+      )
+    );
     // Footer 2 End
 
     // Footer 3
-    register_sidebar(array(
-      'name'          => esc_html__('Footer 3', 'bootscore'),
-      'id'            => 'footer-3',
-      'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="footer_widget mb-4">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
-      'after_title'   => '</h2>'
-    ));
+    register_sidebar(
+      array(
+        'name' => esc_html__('Footer 3', 'bootscore'),
+        'id' => 'footer-3',
+        'description' => esc_html__('Add widgets here.', 'bootscore'),
+        'before_widget' => '<div class="footer_widget mb-4">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="widget-title h4">',
+        'after_title' => '</h2>'
+      )
+    );
     // Footer 3 End
 
     // Footer 4
-    register_sidebar(array(
-      'name'          => esc_html__('Footer 4', 'bootscore'),
-      'id'            => 'footer-4',
-      'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="footer_widget mb-4">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
-      'after_title'   => '</h2>'
-    ));
+    register_sidebar(
+      array(
+        'name' => esc_html__('Footer 4', 'bootscore'),
+        'id' => 'footer-4',
+        'description' => esc_html__('Add widgets here.', 'bootscore'),
+        'before_widget' => '<div class="footer_widget mb-4">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="widget-title h4">',
+        'after_title' => '</h2>'
+      )
+    );
     // Footer 4 End
 
     // 404 Page
-    register_sidebar(array(
-      'name'          => esc_html__('404 Page', 'bootscore'),
-      'id'            => '404-page',
-      'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="mb-4">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h1 class="widget-title">',
-      'after_title'   => '</h1>'
-    ));
+    register_sidebar(
+      array(
+        'name' => esc_html__('404 Page', 'bootscore'),
+        'id' => '404-page',
+        'description' => esc_html__('Add widgets here.', 'bootscore'),
+        'before_widget' => '<div class="mb-4">',
+        'after_widget' => '</div>',
+        'before_title' => '<h1 class="widget-title">',
+        'after_title' => '</h1>'
+      )
+    );
     // 404 Page End
 
   }
@@ -242,7 +269,8 @@ add_filter('widget_text', 'do_shortcode');
 
 
 //Enqueue scripts and styles
-function bootscore_scripts() {
+function bootscore_scripts()
+{
 
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes.
   $modificated_bootscoreCss = (file_exists(get_template_directory() . '/css/main.css')) ? date('YmdHi', filemtime(get_template_directory() . '/css/main.css')) : 1;
@@ -255,7 +283,7 @@ function bootscore_scripts() {
   require_once 'inc/scss-compiler.php';
   bootscore_compile_scss();
   wp_enqueue_style('main', get_template_directory_uri() . '/css/main.css', array(), $modificated_bootscoreCss);
-  
+
   // Style CSS
   wp_enqueue_style('bootscore-style', get_stylesheet_uri(), array(), $modificated_styleCss);
 
@@ -269,15 +297,19 @@ function bootscore_scripts() {
   wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), $modificated_themeJs, true);
 
   // IE Warning
-  wp_localize_script('bootscore-script', 'bootscore', array(
-    'ie_title'                 => __('Internet Explorer detected', 'bootscore'),
-    'ie_limited_functionality' => __('This website will offer limited functionality in this browser.', 'bootscore'),
-    'ie_modern_browsers_1'     => __('Please use a modern and secure web browser like', 'bootscore'),
-    'ie_modern_browsers_2'     => __(' <a href="https://www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a>, <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, <a href="https://www.opera.com/" target="_blank">Opera</a> ', 'bootscore'),
-    'ie_modern_browsers_3'     => __('or', 'bootscore'),
-    'ie_modern_browsers_4'     => __(' <a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a> ', 'bootscore'),
-    'ie_modern_browsers_5'     => __('to display this site correctly.', 'bootscore'),
-  ));
+  wp_localize_script(
+    'bootscore-script',
+    'bootscore',
+    array(
+      'ie_title' => __('Internet Explorer detected', 'bootscore'),
+      'ie_limited_functionality' => __('This website will offer limited functionality in this browser.', 'bootscore'),
+      'ie_modern_browsers_1' => __('Please use a modern and secure web browser like', 'bootscore'),
+      'ie_modern_browsers_2' => __(' <a href="https://www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a>, <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, <a href="https://www.opera.com/" target="_blank">Opera</a> ', 'bootscore'),
+      'ie_modern_browsers_3' => __('or', 'bootscore'),
+      'ie_modern_browsers_4' => __(' <a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a> ', 'bootscore'),
+      'ie_modern_browsers_5' => __('to display this site correctly.', 'bootscore'),
+    )
+  );
   // IE Warning End
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -291,7 +323,8 @@ add_action('wp_enqueue_scripts', 'bootscore_scripts');
 // Preload Font Awesome
 add_filter('style_loader_tag', 'bootscore_fa_preload');
 
-function bootscore_fa_preload($tag) {
+function bootscore_fa_preload($tag)
+{
 
   $tag = preg_replace("/id='fontawesome-css'/", "id='fontawesome-css' online=\"if(media!='all')media='all'\"", $tag);
 
@@ -320,9 +353,10 @@ if (defined('JETPACK__VERSION')) {
 
 
 // Amount of posts/products in category
-if (!function_exists('wpsites_query')) :
+if (!function_exists('wpsites_query')):
 
-  function wpsites_query($query) {
+  function wpsites_query($query)
+  {
     if ($query->is_archive() && $query->is_main_query() && !is_admin()) {
       $query->set('posts_per_page', 24);
     }
@@ -334,13 +368,15 @@ endif;
 
 
 // Pagination Categories
-if (!function_exists('bootscore_pagination')) :
+if (!function_exists('bootscore_pagination')):
 
-  function bootscore_pagination($pages = '', $range = 2) {
+  function bootscore_pagination($pages = '', $range = 2)
+  {
     $showitems = ($range * 2) + 1;
     global $paged;
     // default page to one if not provided
-    if(empty($paged)) $paged = 1;
+    if (empty($paged))
+      $paged = 1;
     if ($pages == '') {
       global $wp_query;
       $pages = $wp_query->max_num_pages;
@@ -369,7 +405,7 @@ if (!function_exists('bootscore_pagination')) :
       if ($paged < $pages && $showitems < $pages)
         echo '<li class="page-item"><a class="page-link" href="' . get_pagenum_link(($paged === 0 ? 1 : $paged) + 1) . '" aria-label="Next Page">&rsaquo;</a></li>';
 
-      if ($paged < $pages - 1 &&  $paged + $range - 1 < $pages && $showitems < $pages)
+      if ($paged < $pages - 1 && $paged + $range - 1 < $pages && $showitems < $pages)
         echo '<li class="page-item"><a class="page-link" href="' . get_pagenum_link($pages) . '" aria-label="Last Page">&raquo;</a></li>';
 
       echo '</ul>';
@@ -387,7 +423,8 @@ endif;
 add_filter('next_post_link', 'post_link_attributes');
 add_filter('previous_post_link', 'post_link_attributes');
 
-function post_link_attributes($output) {
+function post_link_attributes($output)
+{
   $code = 'class="page-link"';
   return str_replace('<a href=', '<a ' . $code . ' href=', $output);
 }
@@ -400,37 +437,39 @@ add_post_type_support('page', 'excerpt');
 
 
 // Breadcrumb
-if (!function_exists('the_breadcrumb')) :
-function the_breadcrumb() {
+if (!function_exists('the_breadcrumb')):
+  function the_breadcrumb()
+  {
 
-  if (!is_home()) {
-    echo '<nav aria-label="breadcrumb" class="breadcrumb-scroller mb-4 mt-2 py-2 px-3 bg-light rounded">';
-    echo '<ol class="breadcrumb mb-0">';
-    echo '<li class="breadcrumb-item"><a href="' . home_url() . '">' . '<i class="fa-solid fa-house"></i>' . '</a></li>';
-    // display parent category names with links
-    if (is_category() || is_single()) {
-      $cat_IDs = wp_get_post_categories(get_the_ID());
-      foreach ($cat_IDs as $cat_ID) {
-        $cat = get_category($cat_ID);
-        echo '<li class="breadcrumb-item"><a href="' . get_term_link($cat->term_id) . '">' . $cat->name . '</a></li>';
+    if (!is_home()) {
+      echo '<nav aria-label="breadcrumb" class="breadcrumb-scroller mb-4 mt-2 py-2 px-3 bg-light rounded">';
+      echo '<ol class="breadcrumb mb-0">';
+      echo '<li class="breadcrumb-item"><a href="' . home_url() . '">' . '<i class="fa-solid fa-house"></i>' . '</a></li>';
+      // display parent category names with links
+      if (is_category() || is_single()) {
+        $cat_IDs = wp_get_post_categories(get_the_ID());
+        foreach ($cat_IDs as $cat_ID) {
+          $cat = get_category($cat_ID);
+          echo '<li class="breadcrumb-item"><a href="' . get_term_link($cat->term_id) . '">' . $cat->name . '</a></li>';
+        }
       }
+      // display current page name
+      if (is_page() || is_single()) {
+        echo '<li class="breadcrumb-item active" aria-current="page">' . get_the_title() . '</li>';
+      }
+      echo '</ol>';
+      echo '</nav>';
     }
-    // display current page name
-    if (is_page() || is_single()) {
-      echo '<li class="breadcrumb-item active" aria-current="page">' . get_the_title() . '</li>';
-    }
-    echo '</ol>';
-    echo '</nav>';
   }
-}
-add_filter('breadcrumbs', 'breadcrumbs');
+  add_filter('breadcrumbs', 'breadcrumbs');
 endif;
 // Breadcrumb END
 
 
 // Comment Button
-if (!function_exists('bootscore_comment_button')) :
-  function bootscore_comment_button($args) {
+if (!function_exists('bootscore_comment_button')):
+  function bootscore_comment_button($args)
+  {
     $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1    
     return $args;
   }
@@ -440,8 +479,9 @@ endif;
 
 
 // Password protected form
-if (!function_exists('bootscore_pw_form')) :
-  function bootscore_pw_form() {
+if (!function_exists('bootscore_pw_form')):
+  function bootscore_pw_form()
+  {
     $output = '
         <form action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post" class="form-inline">' . "\n"
       . '<input name="post_password" type="password" size="" class="form-control me-2 my-1" placeholder="' . __('Password', 'bootscore') . '"/>' . "\n"
@@ -476,15 +516,17 @@ add_filter('pre_user_description', 'wp_filter_post_kses');
 
 
 // Hook after #primary
-function bs_after_primary() {
+function bs_after_primary()
+{
   do_action('bs_after_primary');
 }
 // Hook after #primary END
 
 
 // Open links in comments in new tab
-if (!function_exists('bs_comment_links_in_new_tab')) :
-  function bs_comment_links_in_new_tab($text) {
+if (!function_exists('bs_comment_links_in_new_tab')):
+  function bs_comment_links_in_new_tab($text)
+  {
     return str_replace('<a', '<a target="_blank" rel=”nofollow”', $text);
   }
   add_filter('comment_text', 'bs_comment_links_in_new_tab');
